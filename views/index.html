@@ -14,18 +14,19 @@
       <div class="panel panel-default">
         <div class="panel-body" id="options-panel">
           <div>
-              <!-- <h4>Hotels</h4>-->
+             <h4>Hotels</h4>
             <select data-type="hotel" id="hotel-choices">
-              <option>Andaz Wall Street</option>
-              <option>...</option>
+                {%for hotel in hotels%}
+                    <options> {{hotel.name}} </options>
+                {% endfor %}
             </select>
             <button data-action="add" class="btn btn-primary btn-circle pull-right">+</button>
           </div>
           <div>
             <h4>Restaurants</h4>
             <select data-type="restaurant" id="restaurant-choices">
-            {%for hotel in hotels%}
-            <option>.{{hotel.name}}..</option>
+            {%for restaurant in restaurants%}
+            <option>{{restaurants.name}}</option>
             {%endfor%}
 
           </select>
@@ -34,8 +35,9 @@
           <div>
             <h4>Activities</h4>
             <select data-type="activity" id="activity-choices">
-              <option>Mahayana Buddhist Temple Association</option>
-              <option>...</option>
+            {%for activities in activities%}
+            <option>{{activity.name}}</option>
+            {%endfor%}
             </select>
             <button data-action="add" class="btn btn-primary btn-circle pull-right">+</button>
           </div>

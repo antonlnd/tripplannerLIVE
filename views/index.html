@@ -14,7 +14,7 @@
       <div class="panel panel-default">
         <div class="panel-body" id="options-panel">
           <div>
-            <h4>Hotels</h4>
+              <!-- <h4>Hotels</h4>-->
             <select data-type="hotel" id="hotel-choices">
               <option>Andaz Wall Street</option>
               <option>...</option>
@@ -24,9 +24,11 @@
           <div>
             <h4>Restaurants</h4>
             <select data-type="restaurant" id="restaurant-choices">
-              <option>Bouley</option>
-              <option>...</option>
-            </select>
+            {%for hotel in hotels%}
+            <option>.{{hotel.name}}..</option>
+            {%endfor%}
+
+          </select>
             <button data-action="add" class="btn btn-primary btn-circle pull-right">+</button>
           </div>
           <div>
@@ -89,4 +91,14 @@
     </div>
   </div>
 </div>
+
+<script>
+    var hotels = {{hotels  | dump | safe }},
+    restaurants = {{restaurants | dump | safe}},
+    activities  = {{activities | dump | safe}};
+</script>
+
+
+
+
 {% endblock %}
